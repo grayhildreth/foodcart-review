@@ -2,8 +2,7 @@ import { Component, Output, EventEmitter } from '@angular/core';
 import { Cart } from '@angular/core';
 
 
-@
-Component({
+@Component({
     selector: 'rate-cart',
     template: `
     <div>Rate a food cart...</div>
