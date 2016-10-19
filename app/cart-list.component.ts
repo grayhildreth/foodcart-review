@@ -1,4 +1,8 @@
 import { Component, EventEmitter } from '@angular/core';
+import { NewCartComponent } from './new-keg.component';
+import { EditCartComponent } from './edit-keg.component';
+import { CartComponent } from './keg.component';
+import { Cart } from './keg.model';
 
 @Component({
     selector: 'cart-list',
