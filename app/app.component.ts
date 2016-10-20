@@ -5,30 +5,28 @@ import { Component } from '@angular/core';
   template: `
   <div class="container">
     <h1>Food Cart Reviews</h1>
-    <div > <!-- *ngFor "let currentCart of carts"> -->
-      <h3>{{ foodCart.name }}</h3>
-      <!-- <button (click)="showDetails(currentCart)">Edit</button>
-    </div>
-    <div *ngIf="selectedCart">
-      <h1>Edit Cart</h1>
-      <div>
-        <label>Enter Cart Name:</label>
-        <input [(ngModel)]="selectedCart.name">
-      </div>
-      <div>
-        <label>Enter Cart Rating:</label>
-        <input [(ngModel)]="selectedCart.id">
-        <button (click)="finishedEditing()">Done</button>
-      </div> -->
-    </div>
+    <cart-list></cart-list>
   </div>
   `
 })
 export class AppComponent {
-  foodCart: Cart = new Cart("Steaks Fifth Ave", "American", 1995);
+  public carts: Cart[] = [
+    new Cart("Steaks Fifth Ave", "American", 4),
+    new Cart("Jarochita", "Mexican", 4),
+    new Cart("Don Pedro", "Mexican", 4),
+  ];
+
+  selectedCart: Cart = null;
+  showDetails(clickedCart: Cart) {
+    this.selectedCart = clickedCart;
+    console.log("Clicked a btn"); //proves the button works
+  }
+  finishedEditing() {
+    this.selectedCart = null;
+  }
 }
 
 export class Cart {
-  constructor(public name: string, public food_type: string, public year: number){
+  constructor(public name: string, public food_type: string, public ratings: number){
   }
 }

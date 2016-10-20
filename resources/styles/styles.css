@@ -1,14 +1,11 @@
 h1 {
   color: red;
 }
-
-.soso {
-  font-family: monospace;
-  font-weight: bold;
-  color: #9999ee;
-}
-.good {
+.foodType {
   font-family: cursive;
-  font-weight: bold;
-  color: #ff9999;
+}
+.starRating {
+  color: blue;
+  font-family: monospace;
+  font-size: 40px;
 }
