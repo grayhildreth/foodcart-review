@@ -1,6 +1,6 @@
 import { Component, EventEmitter } from '@angular/core';
 // import { NewCartComponent } from './new-cart.component';
-// import { EditCartComponent } from './edit-cart.component';
+import { RateCartComponent } from './rate-cart.component';
 // import { CartComponent } from './cart.component';
 import { Cart } from './cart.model';
 
@@ -36,9 +36,22 @@ import { Cart } from './cart.model';
   `
 })
 export class CartListComponent {
+  // public carts: Cart[] = [
+  //   new Cart("Steaks Fifth Ave", "American", 4, 3),
+  //   new Cart("Jarochita", "Mexican", 4, 3),
+  //   new Cart("Don Pedro", "Mexican", 4, 3),
+  // ];
+
+  showDetails(clickedCart: Cart) {
+    this.selectedCart = clickedCart;
+    console.log("Clicked a btn"); //proves the button works
+  }
+  finishedEditing() {
+    this.selectedCart = null;
+  }
   public cartList: Cart[];
   public onSelectedCart: EventEmitter<Cart>;
-  public selectedCart: Cart;
+  public selectedCart: Cart = null;
   constructor() {
     this.onSelectedCart = new EventEmitter();
   }

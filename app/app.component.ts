@@ -10,20 +10,7 @@ import { Component } from '@angular/core';
   `
 })
 export class AppComponent {
-  public carts: Cart[] = [
-    new Cart("Steaks Fifth Ave", "American", 4),
-    new Cart("Jarochita", "Mexican", 4),
-    new Cart("Don Pedro", "Mexican", 4),
-  ];
-
-  selectedCart: Cart = null;
-  showDetails(clickedCart: Cart) {
-    this.selectedCart = clickedCart;
-    console.log("Clicked a btn"); //proves the button works
-  }
-  finishedEditing() {
-    this.selectedCart = null;
-  }
+  
 }
 
 export class Cart {
