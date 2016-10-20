@@ -1,23 +1,34 @@
 import { Component } from '@angular/core';
-import { Cart } from './cart.model';
 
 @Component({
-    selector: 'my-app',
-    directives: [CartListComponent],
-    template: `
-    <div class="container">
-      <h3>Cart List</h3>
-      <cart-list></cart-list>
+  selector: 'my-app',
+  template: `
+  <div class="container">
+    <h1>Food Cart Reviews</h1>
+    <div > <!-- *ngFor "let currentCart of carts"> -->
+      <h3>{{ foodCart.name }}</h3>
+      <!-- <button (click)="showDetails(currentCart)">Edit</button>
     </div>
+    <div *ngIf="selectedCart">
+      <h1>Edit Cart</h1>
+      <div>
+        <label>Enter Cart Name:</label>
+        <input [(ngModel)]="selectedCart.name">
+      </div>
+      <div>
+        <label>Enter Cart Rating:</label>
+        <input [(ngModel)]="selectedCart.id">
+        <button (click)="finishedEditing()">Done</button>
+      </div> -->
+    </div>
+  </div>
   `
 })
 export class AppComponent {
-  public carts: Cart[];
-  constructor(){
-    this.carts = [
-      new Cart("Steaks Fifth Avenue",4,"East Coast","medium"),
-      new Cart("Jarochita",4,"Mexican","low"),
-      new Cart("Koi Fusion",4,"Fusion Asian","medium")
-    ];
+  foodCart: Cart = new Cart("Steaks Fifth Ave", "American", 1995);
+}
+
+export class Cart {
+  constructor(public name: string, public food_type: string, public year: number){
   }
 }
