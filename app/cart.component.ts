@@ -3,7 +3,6 @@ import { Cart } from './cart.model';
 
 @Component({
   selector: 'cart-item',
-  inputs: ['cart'],
   template: `
     <div>
       <span *ngIf="cart.ratings > 3" class="good">

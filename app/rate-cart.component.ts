@@ -1,20 +1,26 @@
-import { Component } from '@angular/core';
-// import { Cart } from '@angular/core';
-
+import { Component, Input, Output, EventEmitter } from '@angular/core';
+import { Cart }   from './cart.model';
 
 @Component({
     selector: 'rate-cart',
-    inputs: ['cart'],
     template: `
-    <div class="form-group">
-      <h2>Rate a food cart...</h2>
-      <input [(ngModel)]="cart.name" class="input-lg form-control"/>
-      <input [(ngModel)]="cart.ratings" class="input-lg form-control"/>
-      <input [(ngModel)]="cart.food_type" class="input-lg form-control"/>
-      <input [(ngModel)]="cart.pricyness" class="input-lg form-control"/>
+    <div *ngIf="childSelectedCart">
+      <h1>Rate this Cart</h1>
+      <select [(ngModel)]="childSelectedCart.ratings">
+        <option value="5">Legendary</option>
+        <option value="4">Great</option>
+        <option value="3" selected="selected">Good</option>
+        <option value="2">So-so</option>
+        <option value="1">Poor</option>
+      </select>
+      <button (click)="rateCart()">Rate It!</button>
     </div>
   `
 })
 export class RateCartComponent {
-  public cart: Cart;
+  @Input() childSelectedCart: Cart;
+  @Output() rateCartSender = new EventEmitter();
+  rateCart() {
+    this.rateCartSender.emit();
+  }
 }

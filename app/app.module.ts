@@ -3,8 +3,9 @@ import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule }   from '@angular/forms';
 import { AppComponent }   from './app.component';
 import { CartListComponent }   from './cart-list.component';
-// import { NewCartComponent }   from './new-cart.component';
+import { NewCartComponent }   from './new-cart.component';
 import { RateCartComponent }   from './rate-cart.component';
+import { CartComponent }   from './cart.component';
 import { Cart }   from './cart.model';
 
 
@@ -18,6 +19,8 @@ import { Cart }   from './cart.model';
     AppComponent,
     CartListComponent,
     RateCartComponent,
+    NewCartComponent,
+    CartComponent
   ],
 
   bootstrap: [ AppComponent ]
